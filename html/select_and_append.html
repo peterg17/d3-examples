@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script type = "text/javascript" src = "../d3/d3.min.js"></script>
+   </head>
+
+   <body>
+      <div class = "myclass">
+         Hello World!
+      </div>
+      
+      <script>
+         // this one puts text on a different line 
+         // d3.select("div.myclass").append("div").text("from D3.js");
+         // this one puts text on the same line
+         d3.select("div.myclass").append("span").text("from D3.js");
+      </script>
+   </body>
+</html>

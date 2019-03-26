@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <script type = "text/javascript" src = "../d3/d3.min.js"></script>
+     </head>
+     <body>
+         <ul id="list">
+             <li></li>
+             <li></li>
+         </ul>
+
+         
+         <input type="button" name="remove" value="Remove 4th value"
+            onclick="javascript:remove()" />
+
+     </body>
+     <script>
+         // shows the chaining property of d3 statements
+         d3.select("#list").selectAll("li")
+            .data([10, 20, 30, 25, 15])
+            .text(function(d) { return "pre-existing element with value: " + d; })
+            .enter()
+            .append("li")
+            .text(function(d){
+                return "dynamically created element with value: " + d
+            });
+
+        
+        // d3.select("#list").selectAll("li")
+        //     .data([10, 20, 30, 15])
+        //     .exit()
+        //     .remove();
+
+        // this doesn't actually remove the fourth element,
+        // how do you do that?
+        function remove() {
+            d3.selectAll("li")
+                .data([10,20,30,15], function(d) { return d; })
+                .exit()
+                .remove()
+        }
+     </script>
+
+</html>
